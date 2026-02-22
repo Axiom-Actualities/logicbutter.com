@@ -67,11 +67,13 @@
     .nav-logo {
       font-weight: 900;
       font-size: 1.15rem;
-      color: var(--text);
       text-decoration: none;
       letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ff6b35, var(--butter), #ff8c42, #e84393);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .nav-logo .lb { color: var(--butter); }
     .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a {
       color: var(--text-dim);
@@ -395,8 +397,12 @@
       font-weight: 900;
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ff6b35, var(--butter), #ff8c42, #e84393);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
     }
-    .footer-brand .lb { color: var(--butter); }
     .footer-text {
       color: var(--text-dim);
       font-size: 0.8rem;
@@ -451,7 +457,7 @@
 <!-- ════════ NAV ════════ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Logic <span class="lb">Butter</span></a>
+    <a href="#" class="nav-logo">Logic Butter</a>
     <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#129480;</button>
     <div class="nav-links">
       <a href="#divisions">Divisions</a>
@@ -648,7 +654,7 @@
 
 <!-- ════════ FOOTER ════════ -->
 <footer>
-  <div class="footer-brand">Logic <span class="lb">Butter</span></div>
+  <div class="footer-brand">Logic Butter</div>
   <p class="footer-text">
     Smooth execution. Sharp logic.<br>
     Built by Landon Hill &mdash; Logic Butter&trade;
