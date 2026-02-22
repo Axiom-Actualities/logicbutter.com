@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logic Butter — Smooth Execution. Sharp Logic.</title>
+  <meta name="description" content="Logic Butter is the parent brand behind Axiom Actualities, Axiomite, and sovereign technology built by Landon Hill. Software. Merch. Future.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Logic Butter — Smooth Execution. Sharp Logic.">
+  <meta property="og:description" content="The parent brand behind sovereign technology. Software, merch, and the future. Built by Landon Hill.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logicbutter.com">
+  <link rel="canonical" href="https://logicbutter.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #07070c;
+      --bg2: #0c0c14;
+      --bg-card: #0f0f1c;
+      --bg-card-hover: #141428;
+      --border: #1a1a35;
+      --text: #e8e8f4;
+      --text-dim: #6e6e8e;
+      --text-bright: #ffffff;
+      --butter: #f5c842;
+      --butter-glow: rgba(245, 200, 66, 0.2);
+      --butter-dim: rgba(245, 200, 66, 0.08);
+      --purple: #a855f7;
+      --purple-glow: rgba(168, 85, 247, 0.2);
+      --green: #22c55e;
+      --green-dim: rgba(34, 197, 94, 0.12);
+      --cyan: #06b6d4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(7, 7, 12, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo .lb { color: var(--butter); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; max-width: 700px; }
+
+    .lb-mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--butter);
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 60px rgba(245,200,66,0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .thin {
+      font-weight: 300;
+      color: var(--text-dim);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .hero-quote {
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .hero-quote strong { color: var(--butter); font-style: normal; }
+
+    /* ── DIVISIONS ── */
+    .divisions { padding: 5rem 2rem; }
+    .divisions-inner { max-width: 1100px; margin: 0 auto; }
+    .div-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--butter);
+      margin-bottom: 0.75rem;
+    }
+    .div-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .div-desc {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    .div-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .div-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .div-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--butter);
+      box-shadow: 0 8px 40px rgba(245,200,66,0.1);
+    }
+    .div-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .div-card.software::before { background: linear-gradient(90deg, var(--purple), var(--cyan)); }
+    .div-card.features::before { background: linear-gradient(90deg, var(--cyan), var(--green)); }
+    .div-card.merch::before { background: linear-gradient(90deg, var(--butter), #ff8c00); }
+
+    .div-card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .div-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .div-card .domain {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--butter);
+      margin-bottom: 1rem;
+    }
+    .div-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .div-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .div-card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-dim);
+    }
+    .div-card-arrow {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+    .div-card:hover .div-card-arrow { transform: translateX(4px); color: var(--butter); }
+
+    /* ── MANIFESTO ── */
+    .manifesto {
+      padding: 5rem 2rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .manifesto-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .manifesto h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    .manifesto-text {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 2;
+    }
+    .manifesto-text strong { color: var(--butter); }
+    .manifesto-values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .m-value {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--bg-card);
+    }
+    .m-value h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--butter);
+      margin-bottom: 0.4rem;
+    }
+    .m-value p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* ── FOUNDER ── */
+    .founder {
+      padding: 5rem 2rem;
+    }
+    .founder-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .founder-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .founder-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--butter);
+      margin-bottom: 1.5rem;
+    }
+    .founder-bio {
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* ── MERCH PREVIEW ── */
+    .merch-preview {
+      padding: 5rem 2rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .merch-inner { max-width: 1100px; margin: 0 auto; }
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .merch-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s;
+    }
+    .merch-item:hover {
+      border-color: var(--butter);
+      transform: translateY(-4px);
+    }
+    .merch-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .merch-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .merch-item p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .merch-item .merch-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--butter);
+      font-weight: 700;
+      margin-top: 0.75rem;
+    }
+    .merch-soon {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--butter);
+      background: var(--butter-dim);
+      border: 1px solid rgba(245,200,66,0.3);
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      margin-top: 3rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand .lb { color: var(--butter); }
+    .footer-text {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--butter); }
+    .footer-quote {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: rgba(7,7,12,0.98);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1rem;
+      }
+      .mobile-menu-btn { display: block; }
+      .div-grid { grid-template-columns: 1fr; }
+      .merch-grid { grid-template-columns: 1fr 1fr; }
+      .lb-mark { font-size: 3rem; }
+      .manifesto-values { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Logic <span class="lb">Butter</span></a>
+    <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="#divisions">Divisions</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#merch">Merch</a>
+      <a href="https://axiomactualities.com" target="_blank">Axiom Actualities</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="lb-mark">LB</div>
+    <h1>Smooth Execution.<br><span class="thin">Sharp Logic.</span></h1>
+    <p>Logic Butter is the parent brand behind sovereign technology. Software that runs local. Merch that represents builders. A future that belongs to the people who make it.</p>
+
+    <div class="hero-quote">
+      <strong>Logic</strong> is the architecture. <strong>Butter</strong> is the smooth execution.<br>
+      Together, that's how everything gets built.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DIVISIONS ════════ -->
+<section id="divisions" class="divisions">
+  <div class="divisions-inner">
+    <div class="div-label">// Our Divisions</div>
+    <h2 class="div-title">Three Arms. One Vision.</h2>
+    <p class="div-desc">Every division of Logic Butter serves one purpose: sovereign technology built by and for the people who use it.</p>
+
+    <div class="div-grid">
+
+      <!-- Axiom Actualities -->
+      <a href="https://axiomactualities.com" target="_blank" class="div-card software">
+        <div class="div-card-icon">&#9000;</div>
+        <h3>Axiom Actualities</h3>
+        <div class="domain">axiomactualities.com</div>
+        <p>Local-first code and LaTeX extraction platform. Camera, voice, video, and handwriting to code. 14 sovereign features. 35+ CLI commands. Zero cloud. Zero tracking. Available on Android.</p>
+        <div class="div-card-tags">
+          <span class="div-card-tag">React Native</span>
+          <span class="div-card-tag">Android</span>
+          <span class="div-card-tag">Local-First</span>
+          <span class="div-card-tag">OCR</span>
+          <span class="div-card-tag">LaTeX</span>
+        </div>
+        <span class="div-card-arrow">&#8594;</span>
+      </a>
+
+      <!-- Axiomite -->
+      <a href="https://axiomite.dev" target="_blank" class="div-card features">
+        <div class="div-card-icon">&#9881;</div>
+        <h3>Axiomite</h3>
+        <div class="domain">axiomite.dev</div>
+        <p>The feature laboratory. Deep-dive documentation for every sovereign feature, every CLI command, every defense system. Interactive terminal demos and the complete Logic-Butter CLI reference.</p>
+        <div class="div-card-tags">
+          <span class="div-card-tag">Documentation</span>
+          <span class="div-card-tag">Feature Lab</span>
+          <span class="div-card-tag">CLI Reference</span>
+          <span class="div-card-tag">Deep Dive</span>
+        </div>
+        <span class="div-card-arrow">&#8594;</span>
+      </a>
+
+      <!-- Merch -->
+      <div class="div-card merch" id="merch-card">
+        <div class="div-card-icon">&#127941;</div>
+        <h3>Logic Butter Merch</h3>
+        <div class="domain">logicbutter.com/merch</div>
+        <p>Wear the brand. Hoodies, tees, stickers, backpacks, and mugs designed for builders, developers, and sovereign thinkers. Print-on-demand &mdash; zero waste, zero inventory.</p>
+        <div class="div-card-tags">
+          <span class="div-card-tag">Hoodies</span>
+          <span class="div-card-tag">Tees</span>
+          <span class="div-card-tag">Stickers</span>
+          <span class="div-card-tag">Backpacks</span>
+          <span class="div-card-tag">Mugs</span>
+        </div>
+        <span class="div-card-arrow">&#8594;</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MANIFESTO ════════ -->
+<section id="manifesto" class="manifesto">
+  <div class="manifesto-inner">
+    <h2>The Logic Butter Manifesto</h2>
+    <p class="manifesto-text">
+      We build technology that <strong>you own</strong>. Not technology that owns you.<br><br>
+      Every line of code runs on <strong>your device</strong>. Every file lives on <strong>your storage</strong>. Every decision is <strong>yours</strong>.<br><br>
+      We don't collect data. We don't phone home. We don't sell your attention. We build tools and sell them once. That's it.<br><br>
+      The mind is only as sharp as the <strong>will behind it</strong>. Logic Butter exists because we chose to build instead of complain. To find loopholes instead of excuses. To ship instead of pitch.<br><br>
+      Built from a phone. Certified with 15,540 assertions. Shipped to the world.
+    </p>
+
+    <div class="manifesto-values">
+      <div class="m-value">
+        <h4>Sovereign</h4>
+        <p>Your data stays on your device. Period.</p>
+      </div>
+      <div class="m-value">
+        <h4>Local-First</h4>
+        <p>Zero cloud calls. Zero telemetry. Zero accounts.</p>
+      </div>
+      <div class="m-value">
+        <h4>One-Time</h4>
+        <p>Buy once, own forever. No subscriptions.</p>
+      </div>
+      <div class="m-value">
+        <h4>Certified</h4>
+        <p>15,540 test assertions. Zero failures. Lambda Seal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MERCH PREVIEW ════════ -->
+<section id="merch" class="merch-preview">
+  <div class="merch-inner">
+    <div class="div-label">// Merch</div>
+    <h2 class="div-title">Wear the Brand</h2>
+    <p class="div-desc" style="margin-left:auto;margin-right:auto;">Print-on-demand. Zero inventory. Zero waste. Every piece made when you order it.</p>
+
+    <div class="merch-grid">
+      <div class="merch-item">
+        <div class="merch-icon">&#128085;</div>
+        <h4>LB Hoodie</h4>
+        <p>Logic Butter logo, heavyweight fleece</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+      <div class="merch-item">
+        <div class="merch-icon">&#128084;</div>
+        <h4>LB Tee</h4>
+        <p>Minimalist "lb fix" developer streetwear</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+      <div class="merch-item">
+        <div class="merch-icon">&#127890;</div>
+        <h4>LB Backpack</h4>
+        <p>Brain-butter logo, built for builders</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+      <div class="merch-item">
+        <div class="merch-icon">&#9749;</div>
+        <h4>LB Mug</h4>
+        <p>Terminal output printed on ceramic</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+      <div class="merch-item">
+        <div class="merch-icon">&#128241;</div>
+        <h4>LB Phone Case</h4>
+        <p>Melting butter-brain on impact armor</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+      <div class="merch-item">
+        <div class="merch-icon">&#129529;</div>
+        <h4>LB Sticker Pack</h4>
+        <p>"lb shadow", "ZERO CLOUD", "GOD_MODE"</p>
+        <div class="merch-price">Coming Soon</div>
+      </div>
+    </div>
+
+    <div class="merch-soon">Printful store launching soon</div>
+  </div>
+</section>
+
+<!-- ════════ FOUNDER ════════ -->
+<section class="founder">
+  <div class="founder-inner">
+    <div class="div-label">// Founder</div>
+    <div class="founder-name">Landon Hill</div>
+    <div class="founder-title">Founder &amp; Builder &mdash; Logic Butter</div>
+    <p class="founder-bio">
+      Built a sovereign code extraction platform from a phone in Termux. No CS degree. No VC funding. No team. Just logic and smooth execution. Five months from zero code experience to a Lambda Seal certified product with 15,540 passing assertions and a live store. Logic Butter is what happens when you solve the problem instead of talking about it.
+    </p>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="footer-brand">Logic <span class="lb">Butter</span></div>
+  <p class="footer-text">
+    Smooth execution. Sharp logic.<br>
+    Built by Landon Hill &mdash; Logic Butter&trade;
+  </p>
+  <div class="footer-links">
+    <a href="https://axiomactualities.com" target="_blank">Axiom Actualities</a>
+    <a href="https://axiomite.dev" target="_blank">Axiomite</a>
+    <a href="#merch">Merch</a>
+    <a href="#manifesto">Manifesto</a>
+  </div>
+  <p class="footer-quote">"A person, who is the ruler of their own life, is ruled by Reason alone."</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+
+  // Fade-in
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.div-card, .merch-item, .m-value').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+</script>
+
+</body>
+</html>
