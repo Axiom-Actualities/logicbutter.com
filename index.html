@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logic Butter — Smooth Execution. Sharp Logic.</title>
   <link rel="icon" type="image/png" href="images/favicon-lb.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
   <link rel="manifest" href="manifest.json">
 
   <style>
-    /* 1. FONT DEFINITIONS - Corrected Paths */
     @font-face {
       font-family: 'Boldesqo Serif Decore';
       src: url('fonts/Boldesqo.woff2') format('woff2'), url('fonts/Boldesqo.ttf') format('truetype');
@@ -27,95 +26,97 @@
       --lb-gradient: linear-gradient(135deg, #F4EA0D 0%, #F29406 33%, #D52424 66%, #953838 100%);
     }
 
-    /* 2. THE GLOBAL GRADIENT - No more Grey */
     * { 
       margin: 0; padding: 0; box-sizing: border-box; 
-      background: var(--lb-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent; /* Fallback */
-    }
-
-    /* Force Backgrounds back to Black since * selector hits everything */
-    html, body, section, div, nav, footer {
-      background-clip: border-box;
-      -webkit-text-fill-color: initial;
-      background-image: none;
-      background-color: var(--bg);
-    }
-
-    /* Target all text elements for the 4-stage gradient */
-    p, h1, h2, h3, h4, span, a, li, button {
-      background: var(--lb-gradient) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      display: inline-block; /* Required for clipping in some browsers */
     }
 
     body {
       font-family: 'Brim Narrow', sans-serif;
       font-weight: bold;
       background: var(--bg);
+      color: #fff;
       overflow-x: hidden;
     }
 
-    h1, h2, h3 { font-family: 'Boldesqo Serif Decore', serif; text-transform: uppercase; }
+    /* Force the 4-stage gradient onto EVERY piece of text */
+    p, h1, h2, h3, h4, span, a, li {
+      background: var(--lb-gradient) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
 
-    /* 3. NAVIGATION - Mascot as Burger/Menu */
     nav {
-      position: fixed; top: 0; width: 100%; height: 100px;
-      z-index: 1000; background: var(--bg);
+      position: fixed; top: 0; width: 100%; height: 90px;
+      z-index: 1000; background: rgba(0,0,0,0.95);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%; border-bottom: 2px solid #F4EA0D;
+      padding: 0 5%; border-bottom: 1px solid #F4EA0D;
     }
 
-    .nav-mascot {
-      height: 70px; cursor: pointer;
-      -webkit-text-fill-color: initial !important; /* Don't apply gradient to image */
-    }
+    .nav-mascot { height: 60px; transition: 0.3s; }
+    .nav-mascot:hover { transform: scale(1.1); }
 
-    .nav-links { display: flex; gap: 3rem; }
-    .nav-links a { font-size: 1.2rem; text-decoration: none; letter-spacing: 2px; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { text-decoration: none; font-size: 1.1rem; letter-spacing: 1px; }
 
-    /* 4. THE HERO - Logic Butter Attraction */
     .hero {
-      height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
+      padding: 150px 5% 100px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
 
-    .hero-logo { width: 300px; margin-bottom: 2rem; }
+    .hero-banner {
+      width: 100%; max-width: 900px;
+      margin-bottom: 3rem;
+      filter: drop-shadow(0 0 20px rgba(244, 234, 13, 0.2));
+    }
 
     .hero h1 {
-      font-size: clamp(4rem, 15vw, 9rem);
-      margin-bottom: 1rem;
-      line-height: 0.9;
+      font-family: 'Boldesqo Serif Decore', serif;
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 1; margin-bottom: 2rem;
     }
 
-    .hero p { font-size: 1.8rem; max-width: 800px; }
-
-    .axiom-link {
-      margin-top: 3rem; font-size: 1.5rem;
-      border: 1px solid #D52424; padding: 1rem 3rem;
+    .hero p {
+      font-size: 1.5rem; max-width: 700px; margin-bottom: 3rem;
+      line-height: 1.4;
     }
+
+    .cta-button {
+      border: 2px solid #F29406;
+      padding: 1rem 3rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta-button:hover {
+      box-shadow: 0 0 30px #D52424;
+      transform: translateY(-3px);
+    }
+
+    section { padding: 100px 5%; border-top: 1px solid #1a1a1a; }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="/"><img src="images/logic-butter-mascot.png" class="nav-mascot" alt="Menu"></a>
+    <a href="/"><img src="images/logic-butter-mascot.png" class="nav-mascot" alt="Mascot"></a>
     <div class="nav-links">
-      <a href="#workshop">Workshop</a>
-      <a href="#silo">Silo</a>
-      <a href="https://axiomite.dev" target="_blank">Axiomite.dev</a>
+      <a href="#workshop">WORKSHOP</a>
+      <a href="#silo">SILO</a>
+      <a href="https://axiomite.dev" target="_blank">AXIOMITE.DEV</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <img src="images/logic-butter-banner.png" class="hero-logo" alt="Logic Butter">
-    <h1>LOGIC<br>BUTTER</h1>
-    <p>Every word, every letter, every execution is rendered in the Sovereign Gradient. No filler. No gray. Sharp Logic.</p>
-    <a href="https://axiomite.dev" class="axiom-link">ENTER AXIOMITE</a>
+  <main class="hero">
+    <img src="images/logic-butter-banner.png" class="hero-banner" alt="Logic Butter Banner">
+    <h1>SMOOTH EXECUTION.<br>SHARP LOGIC.</h1>
+    <p>The Sovereign Build is live. Every asset, every PNG, and every line of code is synchronized to the 4-stage gradient. This is Logic Butter.</p>
+    <a href="https://axiomite.dev" class="cta-button">ENTER THE WORKSHOP</a>
+  </main>
+
+  <section id="silo">
+    <h2>THE SILO</h2>
+    <p>Your data, your logic, rendered without compromise. No gray areas. Only the gradient.</p>
   </section>
 
 </body>
